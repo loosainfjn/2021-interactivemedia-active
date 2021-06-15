@@ -28,6 +28,8 @@ body{
       background-repeat: no-repeat;
       background-size:cover;
 }
+
+/* 가로 모드 */
 @media( orientation: portrait ){
   html {
     transform: rotate(-90deg);

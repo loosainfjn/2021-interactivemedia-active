@@ -94,8 +94,7 @@
             top = parseInt(top) - ( dist * Math.sin( ang * (Math.PI/180) ) ) + "px";
         }
     }
-
-    // AI 라켓
+        // AI 라켓
     function moveAI( y ) {
         var AI = document.getElementById("playerTwo");
         y = y - 10;

@@ -93,6 +93,8 @@ body{
     background-size: cover;
     z-index: 100;
 }
+
+/* 가로 모드 */
 @media( orientation: portrait ){
     html {
       transform: rotate(-90deg);

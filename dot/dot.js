@@ -79,12 +79,15 @@ var canvas = document.getElementById("canvas"),
         if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
       }
     }
-    
-    canvas.addEventListener("mousemove", function(e){
+    canvas.addEventListener( 'pointerdown', function( e ) {
+      mousedown = true;
+      if(mousedown){
+    canvas.addEventListener("pointermove", function(e){
       mouse.x = e.clientX;
       mouse.y = e.clientY;
     });
-    
+  }
+});
     // 업데이트 및 그리기
     function tick() {
       draw();
