@@ -1,18 +1,18 @@
-            const speedDash = document.querySelector('.speedDash');
+            const speedDash = document.querySelector('.speedDash'); // 대시 보드
             const scoreDash = document.querySelector('.scoreDash');
             const lifeDash = document.querySelector('.lifeDash');
             const container = document.getElementById('container');
             const btnStart = document.querySelector('.btnStart');
             var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/);
             btnStart.addEventListener('click',startGame); // 버튼
-            document.addEventListener('keydown',pressKeyOn); // 아래화살표 키
-            document.addEventListener('keyup',pressKeyOff); // 위화살표 키
-            var btn=document.getElementById("btn");
+            document.addEventListener('keydown',pressKeyOn); // 아래 방향 키
+            document.addEventListener('keyup',pressKeyOff); // 위 방향 키
+            var btn=document.getElementById("btn"); // 다음으로 버튼
             //Game Variables
             let animationGame; //= requestAnimationFrame(playGame);
             let gamePlay = false; // 게임 시작 여부
-            let player; 
-            let keys = {
+            let player; // 사용자
+            let keys = { // 방향 키
                 ArrowUp:false,
                 ArrowDown:false,
                 ArrowLeft: false,
@@ -26,8 +26,7 @@
                 btnStart.style.display = "none";
                 var div = document.createElement('div');
                 div.setAttribute('class','playerBike');
-                //자전거 x축 위치
-                if(isMobile!=null) //모바일
+                if(isMobile!=null) // 자전거 x축 위치 / 모바일
                 {div.x = 800;}
                 else{div.x=850;} //웹
                 div.y = 500; // 자전거 y축 위치
@@ -40,7 +39,7 @@
                     lives:10, //생명
                     gameScore:0,
                     carstoPass:0, //차 지나가기
-                    score :0,
+                    score :0, // 점수
                     roadwidth:250, // 도로 너비
                     gameEndCounter:0
                 }
@@ -49,7 +48,7 @@
                 setupBadGuys(10);
             }
 
-            // ***  
+            // 10초 후 다음으로 버튼
             setTimeout(function() {
                 btn.style.display='block';
               }, 10000);
@@ -81,10 +80,10 @@
             // 장애물 랜덤 생성
             function makeBad(e){
                 let tempRoad = document.querySelector('.road');
-                e.style.left = tempRoad.offsetLeft + Math.ceil(Math.random()*tempRoad.offsetWidth)-30+'px';
+                e.style.left = tempRoad.offsetLeft + Math.ceil(Math.random()*tempRoad.offsetWidth)-30+'px'; //위치
                 e.style.top = Math.ceil(Math.random()*-400)+'px';
-                e.speed = Math.ceil(Math.random()*17)+2;
-                e.style.backgroundColor = randomColor();
+                e.speed = Math.ceil(Math.random()*17)+2; // 속도
+                e.style.backgroundColor = randomColor(); // 색
             }
             
             // 
@@ -98,14 +97,14 @@
                 }
             }
             
-            // 위 방향 키 이벤트
+            // press on key
             function pressKeyOn(event){
                 event.preventDefault();
                 //console.log(keys);
                 keys[event.key]=true;
             }
 
-            // 아래 방향 키 이벤트
+            // press off key
             function pressKeyOff(event){
                 event.preventDefault();
                 //console.log(keys);
@@ -120,7 +119,7 @@
                 speedDash.innerHTML = Math.round(player.speed*10);
             }
             
-            // 도로 *****
+            // 도로 움직임
             function moveRoad(){
                 let tempRoad = document.querySelectorAll('.road');
                 //console.log(tempRoad);
@@ -205,10 +204,9 @@
                 }
             }
             
-            // 게임 오버? 승리?
             function gameOverPlay()
             {
-                player.gameEndCounter =12; // ******
+                player.gameEndCounter =12;
                 player.speed =0;
             }
             
@@ -264,7 +262,7 @@
                         losediv.style.top = '500px';
                         losediv.style.backgroundColor ='red';
                         losediv.style.width = '250px';
-                        losediv.innerHTML = 'You Lose!'; // 
+                        losediv.innerHTML = 'You Lose!';
                         losediv.style.fontSize = '3em';
                         losediv.style.zIndex = '120';
                         container.appendChild(losediv);

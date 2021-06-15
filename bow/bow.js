@@ -8,9 +8,14 @@ var points = 0; // 포인트
 var arrowState = 0; // 0 - not moving / 1 - Moving
 let timer = null;
 var btn=document.getElementById("btn");
-canvas.height = 1000; // window.innerHeight;
-canvas.width = 1350; //캔버스 너비
-
+var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/);
+canvas.width = 1350;
+if(isMobile!=null){
+canvas.height = 1000; // 캔버스 크기
+}
+else{
+  canvas.height = window.innerHeight;
+}
 let gravityLabel;
 let pointsLabel;
 
@@ -28,7 +33,7 @@ window.onload = () => { // 중력
   pointsLabel = document.getElementById("points");
 }
 
-// ********
+// 10초 후 다음으로 버튼
 setTimeout(function() {
   btn.style.display='block';
 }, 10000);
@@ -129,9 +134,31 @@ canvas.addEventListener("mousemove", (e) => {
     arrow.rotate(degrees);
   }
 }, false);
-
-// keep pressing
-document.addEventListener("keydown", (e) => {
+document.addEventListener('pointerdown', function(event) {
+  if(arrowState == 0){
+    isPressed = true;
+    doInterval('300');
+    }
+});
+document.addEventListener('pointerup', function(event) {
+  if(arrowState == 0){
+      isPressed=false;
+      shootArrow(clickDuration);
+      clickDuration = 1;
+    
+  }
+});
+function doInterval(action) {
+  if (isPressed) {
+    clickDuration = clickDuration + parseInt(action);
+    setTimeout(function() {
+      doInterval(action);
+    }, 200);  
+    console.log(clickDuration);
+  }
+};
+// press on
+/*document.addEventListener("keydown", (e) => {
   if(arrowState == 0){
     if(e.code == "Space"){ // 
       timer = setTimeout(() => {
@@ -141,7 +168,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// stop pressing
+// press off
 document.addEventListener("keyup", (e) => {
   if(arrowState == 0){
     if(e.code == "Space"){
@@ -151,7 +178,7 @@ document.addEventListener("keyup", (e) => {
       timer = null;
     }
   }
-});
+});*/
 //---------------------------------------------
 
 

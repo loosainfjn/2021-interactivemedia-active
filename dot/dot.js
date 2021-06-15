@@ -36,6 +36,7 @@ var canvas = document.getElementById("canvas"),
         ctx.fill();
         ctx.fillStyle = 'black';
         ctx.stroke();
+        ctx.lineWidth=3;
       }
       
       // 마우스를 따라 선 생성
@@ -46,13 +47,13 @@ var canvas = document.getElementById("canvas"),
         if(distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
         for (var j = 0, x = stars.length; j < x; j++) {
           var starII = stars[j];
-          if(distance(starI, starII) < 150) {
-            //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
+          if(distance(starI, starII) < 150) { // 일정 거리 안에서만
             ctx.lineTo(starII.x,starII.y); 
+            
           }
         }
       }
-      ctx.lineWidth = 0.05;
+      ctx.lineWidth = 0.1;//0.05
       ctx.strokeStyle = 'white';
       ctx.stroke();
     }
@@ -61,13 +62,10 @@ var canvas = document.getElementById("canvas"),
     function distance( point1, point2 ){
       var xs = 0;
       var ys = 0;
-
       xs = point2.x - point1.x;
       xs = xs * xs;
-
       ys = point2.y - point1.y;
       ys = ys * ys;
-
       return Math.sqrt( xs + ys );
     }
     
@@ -75,10 +73,8 @@ var canvas = document.getElementById("canvas"),
     function update() {
       for (var i = 0, x = stars.length; i < x; i++) {
         var s = stars[i];
-      
         s.x += s.vx / FPS;
         s.y += s.vy / FPS;
-        
         if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
         if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
       }

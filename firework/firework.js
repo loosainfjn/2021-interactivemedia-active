@@ -204,13 +204,16 @@ canvas.addEventListener( 'mousemove', function( e ) {
 	mx = e.pageX - canvas.offsetLeft;
 	my = e.pageY - canvas.offsetTop;
 });
-
-canvas.addEventListener( 'mousedown', function( e ) {
-	e.preventDefault();
+canvas.addEventListener( 'pointerdown', function( e ) {
 	mousedown = true;
-});
+if(mousedown){
+	canvas.addEventListener( 'pointermove', function( e ) {
+	e.preventDefault();
 
-canvas.addEventListener( 'mouseup', function( e ) {
+			});
+		}
+	});
+canvas.addEventListener( 'pointerup', function( e ) {
 	e.preventDefault();
 	mousedown = false;
 });

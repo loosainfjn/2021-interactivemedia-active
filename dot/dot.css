@@ -12,9 +12,9 @@ canvas {
     position: absolute;
 	width: 100vw;
 	z-index: 1;
-	top: 40%;
+    top: 40%;
 	color: #fff;
-	
+	text-transform: uppercase;
 	font-size: 4vmin;
 	display: flex;
 	justify-content: center;
@@ -24,7 +24,7 @@ canvas {
   
   #text h1 {
 	opacity: 0.9;
-	animation: fadein 3s;
+	animation: fadein 3s; /*나타나는 애니메이션*/
   }
 
 @font-face {
