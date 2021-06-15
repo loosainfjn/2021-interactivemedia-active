@@ -1,11 +1,5 @@
 body {
-	background: #000;
-	margin: 0;
-}
-
-canvas {
-	cursor: crosshair;
-	display: block;
+	background-color: black;
 }
 
   #text {
@@ -37,6 +31,7 @@ canvas {
 	transform:translateX(-50%);
 	width: 300px;
 	height: 300px;
+	/*pointer-events: none; */
 }
 
 @font-face {
