@@ -12,9 +12,9 @@ canvas {
     position: absolute;
 	width: 100vw;
 	z-index: 1;
-    top: 40%;
+	top: 40%;
 	color: #fff;
-	text-transform: uppercase;
+	
 	font-size: 4vmin;
 	display: flex;
 	justify-content: center;
