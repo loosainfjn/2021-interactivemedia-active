@@ -36,7 +36,7 @@ window.onload = () => { // 중력
 // 10초 후 다음으로 버튼
 setTimeout(function() {
   btn.style.display='block';
-}, 10000);
+}, 25000);
 
 //Objects----------------------------------------------------------
 //args order = width, height, x, y, color

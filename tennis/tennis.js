@@ -7,7 +7,7 @@
     var btn=document.getElementById("btn");
     setTimeout(function() {
         btn.style.display='block';
-      }, 10000);
+      }, 25000);
     function init() {
         document.getElementById("click").style.display = "none";
         document.getElementById("ball").style.display = "inline";
