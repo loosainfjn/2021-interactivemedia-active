@@ -48,10 +48,10 @@
                 setupBadGuys(10);
             }
 
-            // 10초 후 다음으로 버튼
+            // 25초 후 다음으로 버튼
             setTimeout(function() {
                 btn.style.display='block';
-              }, 10000);
+              }, 25000);
 
             // 장애물 셋팅
             function setupBadGuys(num){
@@ -86,7 +86,6 @@
                 e.style.backgroundColor = randomColor(); // 색
             }
             
-            // 
             function startBoard() {
                 for(let x=0; x<13; x++) {
                     let div = document.createElement('div');
@@ -210,51 +209,49 @@
                 player.speed =0;
             }
             
-            // main play
+            // main play 중요!!!!!
             function playGame(){
-                if(gamePlay){
+                if(gamePlay) { // 시작 버튼을 누르면 실행(gameplay==true)
                     updateDash(); // Dashboard
-                // movement
-                let roadPara=moveRoad(); // 도로의 움직임
-                moveBadGuys(); // 장애물의 움직임
-                // 방향 키에 따른 속도 계산
-                if(keys.ArrowUp)
-                {   if(player.ele.y>400)
-                    player.ele.y -=  1;
-                    player.speed = player.speed <20 ? (player.speed+0.05):20;
-                }
-                if(keys.ArrowDown)
-                {   if(player.ele.y<500)
-                    {player.ele.y +=  1;}
-                    player.speed = player.speed>0?(player.speed-0.2):0;
-                }
-                if(keys.ArrowRight)
-                {
-                    player.ele.x += (player.speed/4);
-                }
-                if(keys.ArrowLeft)
-                {
-                    player.ele.x -= (player.speed/4);
-                }
+                    
+                    // -- movement --
+                    let roadPara = moveRoad(); // 도로 움직임
+                    moveBadGuys(); // 장애물 움직임
 
-                // 도로 위에 있음을 확인
-                if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width))
-                {   if(player.ele.y <500)player.ele.y += +1;
-                    player.speed = player.speed >0?(player.speed-0.2):5;
+                    // 방향 키에 따른 속도 계산
+                    if(keys.ArrowUp) {
+                        if(player.ele.y>400)
+                        player.ele.y -=  1;
+                        player.speed = player.speed <20 ? (player.speed+0.05):20;
+                    }
+                    if(keys.ArrowDown) {
+                        if(player.ele.y<500) {
+                            player.ele.y +=  1;
+                        }
+                        player.speed = player.speed>0?(player.speed-0.2):0;
+                    }
+                    if(keys.ArrowRight) {
+                    player.ele.x += (player.speed/4);
+                    }
+                    if(keys.ArrowLeft) {
+                    player.ele.x -= (player.speed/4);
+                    }
+
+                    // 도로 위에 있음을 확인
+                    if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width)) {
+                        if(player.ele.y <500)player.ele.y += +1;
+                        player.speed = player.speed >0?(player.speed-0.2):5;
                     //console.log('OFF ROAD');
-                }
-            
+                    }
                 // move bike
-                player.ele.style.top = player.ele.y+'px';
-                player.ele.style.left = player.ele.x+'px';
+                    player.ele.style.top = player.ele.y+'px';
+                    player.ele.style.left = player.ele.x+'px';
                 }
                 animationGame = requestAnimationFrame(playGame);
-                if(player.gameEndCounter>0)
-                {
+                if(player.gameEndCounter>0) {
                     player.gameEndCounter--;
                     player.y = (player.y >60)?player.y-30:60;
-                    if(player.gameEndCounter ==0)
-                    {
+                    if(player.gameEndCounter ==0) {
                         gamePlay = false;
                         if(player.lives<1) { // 패배 시
                         let losediv = document.createElement('div');
@@ -267,8 +264,8 @@
                         losediv.style.zIndex = '120';
                         container.appendChild(losediv);
                         }
-                        cancelAnimationFrame(animationGame);
-                        btnStart.style.display = 'block';
+                    cancelAnimationFrame(animationGame);
+                    btnStart.style.display = 'block';
                     }
                 }
             }

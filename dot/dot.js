@@ -1,3 +1,4 @@
+
 // 캔버스
 var canvas = document.getElementById("canvas"),
         ctx = canvas.getContext('2d');
@@ -79,15 +80,24 @@ var canvas = document.getElementById("canvas"),
         if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
       }
     }
-    canvas.addEventListener( 'pointerdown', function( e ) {
-      mousedown = true;
-      if(mousedown){
-    canvas.addEventListener("pointermove", function(e){
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-  }
-});
+    var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/);
+    if(isMobile!=null){
+      canvas.addEventListener( 'pointerdown', function( e ) {
+        mousedown = true;
+        if(mousedown){
+      canvas.addEventListener("pointermove", function(e){
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+    }
+  });
+    }
+    else{
+      canvas.addEventListener("mousemove", function(e){
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+    }
     // 업데이트 및 그리기
     function tick() {
       draw();
