@@ -43,9 +43,6 @@
         -moz-box-sizing: border-box;
         counter-increment: bc;
         padding: 0px 5px 5px 5px;
-        
-        top: 50%;
-        
     }
     
     .button_base {
@@ -153,13 +150,14 @@
     background:#000000;
     color:#fff;
     border:none;
-    position:relative;
+    position:absolute;
     height:60px;
     font-size:1.6em;
     padding:0 2em;
     cursor:pointer;
     transition:800ms ease all;
     outline:none;
+    
   }
   button:hover{
     background:none;

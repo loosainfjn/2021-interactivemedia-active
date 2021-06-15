@@ -157,28 +157,7 @@ function doInterval(action) {
     console.log(clickDuration);
   }
 };
-// press on
-/*document.addEventListener("keydown", (e) => {
-  if(arrowState == 0){
-    if(e.code == "Space"){ // 
-      timer = setTimeout(() => {
-        clickDuration += 100;
-      }, 100);
-    }
-  }
-});
 
-// press off
-document.addEventListener("keyup", (e) => {
-  if(arrowState == 0){
-    if(e.code == "Space"){
-      clearTimeout(timer); //
-      shootArrow(clickDuration);
-      clickDuration = 1;
-      timer = null;
-    }
-  }
-});*/
 //---------------------------------------------
 
 
