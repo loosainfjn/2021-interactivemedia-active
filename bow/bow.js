@@ -8,7 +8,7 @@ var points = 0; // 포인트
 var arrowState = 0; // 0 - not moving / 1 - Moving
 let timer = null;
 var btn=document.getElementById("btn");
-canvas.height = window.innerHeight;
+canvas.height = 1000; // window.innerHeight;
 canvas.width = 1350; //캔버스 너비
 
 let gravityLabel;
