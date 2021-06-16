@@ -51,7 +51,7 @@
             // 25초 후 다음으로 버튼
             setTimeout(function() {
                 btn.style.display='block';
-              }, 25000);
+              }, 20000);
 
             // 장애물 셋팅
             function setupBadGuys(num){
