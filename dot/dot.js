@@ -32,25 +32,25 @@ var canvas = document.getElementById("canvas"),
       for (var i = 0, x = stars.length; i < x; i++) {
         var s = stars[i];
         ctx.fillStyle = "#fff";
-        ctx.beginPath(); // 마우스를 따라 선 생성
+        ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
         ctx.fill();
         ctx.fillStyle = 'black';
         ctx.stroke();
         ctx.lineWidth=3;
       }
-      
-      // 마우스를 따라 선 생성
       ctx.beginPath();
+
+      // 점을 잇는 선들을 생성
       for (var i = 0, x = stars.length; i < x; i++) {
         var starI = stars[i];
         ctx.moveTo(starI.x,starI.y); 
-        if(distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
+        if(distance(mouse, starI) < 150) // 마우스와 점 사이의 거리가 일정 크기 이하
+          ctx.lineTo(mouse.x, mouse.y);
         for (var j = 0, x = stars.length; j < x; j++) {
           var starII = stars[j];
-          if(distance(starI, starII) < 150) { // 일정 거리 안에서만
+          if(distance(starI, starII) < 150) { // 점과 점 사이의 거리가 일정 크기 이하
             ctx.lineTo(starII.x,starII.y); 
-            
           }
         }
       }

@@ -9,10 +9,16 @@
      <script src="../sound/sound.js"></script>
     </head>
     <body>
-        <audio id="audio1" autoplay>
+        <audio id="audio3">
             <source src="../sound/자전거.mp3" type="audio/mp3">
           Your browser does not support the audio element.
-          </audio>
+          <script>
+            setTimeout(function(){
+            document.getElementById("audio3").play();
+            console.log('your audio is started just now');
+            }, 3000)
+        </script>
+        </audio>
           <a href="../tennis/tennis.html"><button class="btn-2"
             type="button" onclick="pause1()" id="btn" style="display: none;">테니스로 움직이기</button></a>
         
