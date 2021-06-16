@@ -8,12 +8,12 @@ body {
 
   #text {
 	position: absolute;
-	top: 60%;
+	top: 70%;
 	width: 100vw;
 	z-index: -1;
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 8vmin;
+	font-size: 6vmin;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -30,8 +30,8 @@ body {
 	top: 15%;
 	left: 50%;
 	transform:translateX(-50%);
-	width: 400px;
-	height: 400px;
+	width: 350px;
+	height: 350px;
 	/*pointer-events: none; */
 }
 
