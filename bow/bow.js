@@ -33,7 +33,7 @@ window.onload = () => { // 중력
   pointsLabel = document.getElementById("points");
 }
 
-// 10초 후 다음으로 버튼
+// 25초 후 다음으로 버튼
 setTimeout(function() {
   btn.style.display='block';
 }, 25000);
@@ -134,26 +134,29 @@ canvas.addEventListener("mousemove", (e) => {
     arrow.rotate(degrees);
   }
 }, false);
+
+ 
 document.addEventListener('pointerdown', function(event) {
   if(arrowState == 0){
     isPressed = true;
     doInterval('300');
-    }
+  }
 });
 document.addEventListener('pointerup', function(event) {
-  if(arrowState == 0){
+  if(arrowState == 0) {
       isPressed=false;
       shootArrow(clickDuration);
       clickDuration = 1;
-    
   }
 });
+
+// 클릭 지속 기간
 function doInterval(action) {
-  if (isPressed) {
+  if (isPressed) { // 클릭하면 이벤트가 발생하여 true, 떼면 false
     clickDuration = clickDuration + parseInt(action);
     setTimeout(function() {
       doInterval(action);
-    }, 200);  
+    }, 200); 
     console.log(clickDuration);
   }
 };

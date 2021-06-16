@@ -94,12 +94,12 @@
             top = parseInt(top) - ( dist * Math.sin( ang * (Math.PI/180) ) ) + "px";
         }
     }
-        // AI 라켓
-    function moveAI( y ) {
+    // AI 라켓
+    function moveAI( y ) { // 공의 y좌표를 따라서 이동
         var AI = document.getElementById("playerTwo");
         y = y - 10;
         y = parseInt(AI.style.top) + ((y - parseInt(AI.style.top)) / speed);
-        if( y < 24 || y > 289 ) { /*리미트 되는 공간 크기*/
+        if( y < 24 || y > 289 ) { // 리미트 되는 공간 크기
             if( y < 24 ) {
                 y = 24;
             } else {

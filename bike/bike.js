@@ -209,7 +209,7 @@
                 player.speed =0;
             }
             
-            // main play 중요!!!!!
+            // main play
             function playGame(){
                 if(gamePlay) { // 시작 버튼을 누르면 실행(gameplay==true)
                     updateDash(); // Dashboard
@@ -237,12 +237,12 @@
                     player.ele.x -= (player.speed/4);
                     }
 
-                    // 도로 위에 있음을 확인
-                    if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width)) {
-                        if(player.ele.y <500)player.ele.y += +1;
-                        player.speed = player.speed >0?(player.speed-0.2):5;
-                    //console.log('OFF ROAD');
-                    }
+    // 자전거가 도로 위에 있지 않으면 속도가 느려짐
+    if((player.ele.x + 40)<roadPara.left || (player.ele.x)>(roadPara.left + roadPara.width)) {
+        if(player.ele.y < 500)player.ele.y += +1;
+        player.speed = player.speed > 0 ? (player.speed-0.2) : 5;
+    }
+
                 // move bike
                     player.ele.style.top = player.ele.y+'px';
                     player.ele.style.left = player.ele.x+'px';

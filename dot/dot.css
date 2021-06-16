@@ -27,6 +27,13 @@ canvas {
 	animation: fadein 3s; /*나타나는 애니메이션*/
   }
 
+  #next {
+	position: absolute;
+	top:90%;
+	left: 50%;
+	transform:translateX(-50%);
+  }
+
 @font-face {
 	font-family: 'HeirofLightBold';
 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/HeirofLightBold.woff') format('woff');
